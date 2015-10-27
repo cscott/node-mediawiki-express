@@ -1,0 +1,29 @@
+{
+  "name": "mediawiki-express",
+  "version": "0.0.0",
+  "description": "An installation of mediawiki invoked from node.js/express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cscott/node-mediawiki-express.git"
+  },
+  "keywords": [
+    "mediawiki",
+    "wikipedia",
+    "express",
+    "php"
+  ],
+  "author": "C. Scott Ananian",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/cscott/node-mediawiki-express/issues"
+  },
+  "homepage": "https://github.com/cscott/node-mediawiki-express#readme",
+  "dependencies": {
+    "express": "~4.13.3",
+    "php-embed": "~0.0.3"
+  }
+}
