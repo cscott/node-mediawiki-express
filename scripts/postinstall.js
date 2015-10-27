@@ -34,10 +34,15 @@ Promise.resolve().then(function() {
 }).then(function() {
   if (SKIP_COPY) { return; }
   console.log('Creating symlinks...');
+  var ASSETS = path.join(IP, 'resources', 'assets');
   return Promise.join(
 	fs.symlink('../vendor', path.join(IP, 'vendor'), 'dir'),
 	fs.symlink('../skins', path.join(IP, 'skins'), 'dir'),
-    fs.mkdir(path.join(IP, 'data'))
+    fs.mkdir(path.join(IP, 'data')),
+    // Poor man's copy:
+    fs.readFile(path.join(ASSETS, 'mediawiki.png')).then(function(data) {
+      return fs.writeFile(path.join(ASSETS, 'wiki.png'), data);
+    })
   );
 }).then(function() {
   console.log('Running PHP installer...');
@@ -61,10 +66,19 @@ Promise.resolve().then(function() {
   console.log('Adding hook to LocalSettings.php');
   return fs.appendFile(path.join(IP, 'LocalSettings.php'), [
     '',
-    '// Hook for additional configuration by ' + packageJson.name,
+    '# https://www.mediawiki.org/wiki/Manual:Short_URL',
+    '$wgScriptPath = "/w";',
+    '$wgArticlePath = "/wiki/$1";',
+    '$wgUsePathInfo = true;',
+    '# Default logo',
+    '$wgLogo = "$wgScriptPath/resources/assets/wiki.png";',
+    '# Hook for additional configuration by ' + packageJson.name,
     'if (isset($_SERVER["CONTEXT"]) && isset($_SERVER["CONTEXT"]->mwHook)) {',
     '  $_SERVER["CONTEXT"]->mwHook($GLOBALS);',
     '}',
+    // For debugging, the following might be useful:
+    // '$wgDebugLogFile = "/tmp/mediawiki.log";',
+    // 'wfDebugLog("error", "This will show up in the log.");',
     '',].join('\n'), 'utf8');
 }).then(function() {
   console.log('Done!');
