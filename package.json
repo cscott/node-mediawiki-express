@@ -2,9 +2,12 @@
   "name": "mediawiki-express",
   "version": "1.26.0",
   "description": "An installation of mediawiki invoked from node.js/express.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "jscs-fix": "jscs --fix .",
+    "lint": "jshint . && jscs .",
+    "postinstall": "node scripts/postinstall.js",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -23,7 +26,15 @@
   },
   "homepage": "https://github.com/cscott/node-mediawiki-express#readme",
   "dependencies": {
-    "express": "~4.13.3",
-    "php-embed": "~0.0.3"
+    "cpr": "^0.4.3",
+    "express": "^4.13.3",
+    "password-generator": "^2.0.2",
+    "php-embed": "^0.0.3",
+    "pn": "^1.0.0",
+    "prfun": "^2.1.1"
+  },
+  "devDependencies": {
+    "jscs": "^2.4.0",
+    "jshint": "^2.8.0"
   }
 }

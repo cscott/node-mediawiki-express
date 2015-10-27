@@ -1,0 +1,6 @@
+clean
+ip
+mediawiki
+node_modules
+skins
+vendor
