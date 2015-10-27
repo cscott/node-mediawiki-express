@@ -1,6 +1,6 @@
 {
   "name": "mediawiki-express",
-  "version": "0.0.0",
+  "version": "1.26.0",
   "description": "An installation of mediawiki invoked from node.js/express.",
   "main": "index.js",
   "scripts": {
