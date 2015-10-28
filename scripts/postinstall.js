@@ -46,7 +46,7 @@ Promise.resolve().then(function() {
   return php.request({
     file: file,
     args: [ file, '--dbtype', 'sqlite', '--dbpath', path.join(IP, 'data'),
-            '--scriptpath', scriptPath,
+            '--scriptpath', scriptPath, '--dbname', 'mediawiki',
             '--pass', adminPassword, 'MediaWiki', adminUser, ],
   });
 }).then(function() {
