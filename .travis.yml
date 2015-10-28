@@ -1,5 +1,14 @@
+sudo: false
 language: node_js
 node_js:
   - "4.1.2"
   - "3.3.1"
   - "2.4.0"
+git:
+  depth: 10
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-5-multilib
