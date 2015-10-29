@@ -11,7 +11,7 @@ MediaWiki, which will eventually bundle Parsoid and other PHP and
 JavaScript services into a single server.
 
 We hope to eventually allow easy addition of extensions and skins via
-npm.
+npm.  See https://phabricator.wikimedia.org/T114457 for more discussion.
 
 # USAGE
 
