@@ -4,7 +4,7 @@
   "description": "An installation of mediawiki invoked from node.js/express.",
   "main": "lib/index.js",
   "bin": {
-    "mediawiki": "./bin/mediawiki"
+    "mediawiki": "./bin/mediawiki.js"
   },
   "scripts": {
     "jscs-fix": "jscs --fix .",
