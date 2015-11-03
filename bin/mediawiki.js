@@ -11,9 +11,12 @@ var argv = require('yargs')
     .describe('p', 'Server port (default: 8080)')
     .help('h')
     .alias('h', 'help')
+    .alias('t', 'test')
+    .describe('t', 'Enable JavaScript unit testing')
     .argv;
 
 server.runServer({
   serverName: argv.host,
   serverPort: argv.port,
+  enableTests: argv.test,
 });

@@ -74,7 +74,7 @@ Promise.resolve().then(function() {
     '$wgLogo = "$wgScriptPath/resources/assets/wiki.png";',
     '# Hook for additional configuration by ' + packageJson.name,
     'if (isset($_SERVER["CONTEXT"]) && isset($_SERVER["CONTEXT"]->mwHook)) {',
-    '  $_SERVER["CONTEXT"]->mwHook($GLOBALS);',
+    '  $_SERVER["CONTEXT"]->mwHook(new Js\\ByRef($GLOBALS));',
     '}',
     // For debugging, the following might be useful:
     // '$wgDebugLogFile = "/tmp/mediawiki.log";',
