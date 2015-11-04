@@ -11,7 +11,8 @@
     "lint": "jshint . && jscs .",
     "postinstall": "node scripts/postinstall.js",
     "test": "npm run lint",
-    "valgrind": "valgrind --trace-children=yes --leak-check=full node --expose-gc --gc_interval=1 scripts/postinstall.js"
+    "valgrind": "valgrind --trace-children=yes --leak-check=full node --expose-gc --gc_interval=1 scripts/postinstall.js",
+    "qunit-chrome": "node scripts/run-mw-tests.js"
   },
   "repository": {
     "type": "git",
