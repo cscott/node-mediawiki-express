@@ -42,6 +42,9 @@ Promise.resolve().then(function() {
     // Poor man's copy:
     fs.readFile(path.join(ASSETS, 'mediawiki.png')).then(function(data) {
       return fs.writeFile(path.join(ASSETS, 'wiki.png'), data);
+    }),
+    fs.readFile(path.join(__dirname, 'favicon.ico')).then(function(data) {
+      return fs.writeFile(path.join(IP, 'favicon.ico'), data);
     })
   );
 }).then(function() {
