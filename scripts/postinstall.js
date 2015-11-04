@@ -82,4 +82,6 @@ Promise.resolve().then(function() {
     '',].join('\n'), 'utf8');
 }).then(function() {
   console.log('Done!');
+  // For test purposes, we'll do a gc before we go.
+  if (global.gc) { global.gc(); }
 }).done();
